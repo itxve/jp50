@@ -252,45 +252,36 @@ vibrant_film_leave_write = [
 
 
 host = ""
+import requests, os
 
 
-# @param  str
-# @param  type mp3/gif
+# 下载mp3
 def down_mp3(str):
-    import requests, os
-
-    _dir = os.path.abspath(os.curdir)
-
-    print(f"downloading {str} source")
     url = f"{host}/audio/{str}.mp3"
-    r = requests.get(url)
+    req = requests.get(url)
     os.makedirs(f"./mp3", exist_ok=True)
-    with open(f"./mp3/{str}.mp3", "wb") as code:
-        code.write(r.content)
+    with open(f"./mp3/{str}.mp3", "wb") as f:
+        f.write(req.content)
 
 
-# @param  str
-# @param  type mp3/gif
+# 下载gif
 def down_gif(type, str, index, name):
-    import requests, os
-
-    _dir = os.path.abspath(os.curdir)
-
-    print(f"downloading [ {type} ] / {str} source")
     url = f"{host}/img/gif/{type}/{type}_gif_{str}{index}.gif"
-    r = requests.get(url)
+    req = requests.get(url)
     os.makedirs(f"./gif/{type}", exist_ok=True)
-    with open(f"./gif/{type}/{name}.gif", "wb") as code:
-        code.write(r.content)
+    with open(f"./gif/{type}/{name}.gif", "wb") as f:
+        f.write(req.content)
 
 
 def get_down():
     for text in voiceless_holiday_write:
+        print(f"downloading {text} source")
         down_mp3(text)
 
     for index, text in enumerate(voiceless_read):
-        down_gif("ping", text, index + 1, voiceless_holiday_write[index])
-        down_gif("pian", text, index + 1, voiceless_film_leave_write[index])
+        for type in ["ping", "pian"]:
+            print(f"downloading {type} / {text} source")
+            down_gif(type, text, index + 1, voiceless_holiday_write[index])
 
 
 get_down()
