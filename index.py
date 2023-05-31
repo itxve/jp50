@@ -251,7 +251,7 @@ vibrant_film_leave_write = [
 ]
 
 
-host = ""
+host = " https://res.hjfile.cn/pt/m/jp/50yin"
 import requests, os
 
 
@@ -274,8 +274,8 @@ def down_gif(type, str, index, name):
 
 
 def get_down():
-    for text in voiceless_holiday_write:
-        print(f"downloading {text} source")
+    for text in voiceless_holiday_write + vibrant_film_leave_write:
+        print(f"downloading {text} mp3 source")
         down_mp3(text)
 
     for index, text in enumerate(voiceless_read):
@@ -284,4 +284,8 @@ def get_down():
             down_gif(type, text, index + 1, voiceless_holiday_write[index])
 
 
-get_down()
+# get_down()
+
+
+
+import 
