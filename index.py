@@ -250,6 +250,46 @@ vibrant_film_leave_write = [
     "ポ",
 ]
 
+# 拗音/读
+audible_read = [
+    "kya",
+    "kyu",
+    "kyo",
+    "gya",
+    "gyu",
+    "gyo",
+    "xya",
+    "xyu",
+    "xyo",
+    "jya",
+    "jyu",
+    "jyo",
+    "qya",
+    "qyu",
+    "qyo",
+    "jya",
+    "jyu",
+    "jyo",
+    "nya",
+    "nyu",
+    "nyo",
+    "hya",
+    "hyu",
+    "hyo",
+    "bya",
+    "byu",
+    "byo",
+    "pya",
+    "pyu",
+    "pyo",
+    "mya",
+    "myu",
+    "myo",
+    "lya",
+    "lyu",
+    "lyo",
+]
+
 # 拗音/平假名 (mp3)
 audible_ping_write = [
     "きゃ",
@@ -375,10 +415,3 @@ def get_down():
 
 
 get_down()
-
-
-# for i, oo in enumerate(vibrant_read):
-#     if i % 5 == 0:
-#         print("-----------")
-#     print(vibrant_read[i])
-#     print(f"{vibrant_holiday_write[i]} {vibrant_film_leave_write[i]} ")
